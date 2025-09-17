@@ -1,6 +1,8 @@
 /**
  * Cloudflare Pages Function: GET /api/status
  * Returns environment-aware deployment info so the landing can verify the pipeline.
+ * @param {{ env: Record<string, string|undefined>, request: Request }} ctx
+ * @returns {Promise<Response>}
  */
 export async function onRequestGet({ env, request }) {
   try {
