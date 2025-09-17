@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en" class="h-full" data-theme="aurora" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JewSide — Cloudflare Connector</title>
+    <meta name="description" content="Connection hub for JewSide: verify Cloudflare Pages deploy & domain." />
+    <meta name="theme-color" content="#4F46E5"> <!-- Updated dynamically -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✡️</text></svg>">
+    <!-- Tailwind Play CDN for a simple static landing -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Heebo:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet" />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="h-full bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+    <!-- Background Elements -->
+    <div class="bg-gradient"></div>
+    <div class="bg-noise"></div>
+    <div class="blob blob-1">
+        <img src="public/bg/blob1.svg" alt="" aria-hidden="true" width="300" height="300">
+    </div>
+    <div class="blob blob-2">
+        <img src="public/bg/blob2.svg" alt="" aria-hidden="true" width="300" height="300">
+    </div>
+    <div class="blob blob-3">
+        <img src="public/bg/blob3.svg" alt="" aria-hidden="true" width="300" height="300">
+    </div>
+
+    <header
+        class="sticky top-0 z-20 border-b border-slate-200/60 dark:border-slate-800/60 bg-white/70 dark:bg-slate-900/60 glass">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">✡️</span>
+                <span class="font-extrabold text-xl tracking-tight">JewSide</span>
+                <span
+                    class="text-sm px-2 py-0.5 rounded bg-[rgba(var(--bg-grad-2),0.1)] text-[rgb(var(--brand-600))]">Connector</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="theme-pills">
+                    <button class="theme-pill aurora-pill" data-theme="aurora" aria-label="Aurora theme"></button>
+                    <button class="theme-pill royal-pill" data-theme="royal" aria-label="Royal theme"></button>
+                    <button class="theme-pill sunset-pill" data-theme="sunset" aria-label="Sunset theme"></button>
+                </div>
+                <button id="rtlToggle" class="btn btn-outline btn-sm" aria-pressed="false">RTL: Off</button>
+                <button id="themeToggle" class="btn btn-outline btn-sm" aria-pressed="false">Dark: Off</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative max-w-5xl mx-auto px-4 py-12">
+        <section class="text-center py-12">
+            <h1 class="font-display text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
+                Ship the UI. <span class="gradient-text">Verify</span> the pipeline.
+            </h1>
+            <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+                This landing page proves your Git → Cloudflare Pages → Domain is connected. It also links to your core
+                app pages.
+            </p>
+
+            <div class="mt-8 flex justify-center">
+                <div class="segmented-control" role="tablist">
+                    <div class="segmented-control-highlight" id="segmentedHighlight"></div>
+                    <a href="/explore" class="segmented-control-item" role="tab" aria-selected="true" data-width="80"
+                        data-index="0">Explore</a>
+                    <a href="/prayers" class="segmented-control-item" role="tab" aria-selected="false" data-width="80"
+                        data-index="1">Prayers</a>
+                    <a href="/videos" class="segmented-control-item" role="tab" aria-selected="false" data-width="75"
+                        data-index="2">Videos</a>
+                    <a href="/admin" class="segmented-control-item" role="tab" aria-selected="false" data-width="75"
+                        data-index="3">Admin</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-8 grid md:grid-cols-2 gap-6">
+            <div class="glass-card p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-[rgb(var(--brand-600))]">
+                        <path d="M20 12V8H6a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h14v4"></path>
+                        <path d="M4 9v5c0 1.1.9 2 2 2h14v-4"></path>
+                        <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+                    </svg>
+                    <h2 class="font-bold text-xl">Connection Status</h2>
+                </div>
+
+                <div id="status" class="text-sm grid gap-1">
+                    <div class="h-5 skeleton w-full"></div>
+                    <div class="h-5 skeleton w-3/4"></div>
+                    <div class="h-5 skeleton w-2/3"></div>
+                    <div class="h-5 skeleton w-4/5"></div>
+                    <div class="h-5 skeleton w-1/2"></div>
+                    <div class="h-5 skeleton w-3/5"></div>
+                </div>
+
+                <div id="statusBadge"
+                    class="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-200 text-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    Pending
+                </div>
+
+                <div id="confettiContainer" class="confetti-container" aria-hidden="true"></div>
+            </div>
+
+            <div class="glass-card p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-[rgb(var(--brand-600))]">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <h2 class="font-bold text-xl">Quick Tips</h2>
+                </div>
+
+                <ul class="list-disc ms-5 text-sm text-slate-600 dark:text-slate-300 space-y-2">
+                    <li>Push to <code
+                            class="px-1 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">main</code>
+                        → Pages builds automatically.</li>
+                    <li>Open <code
+                            class="px-1 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">/api/status</code>
+                        to see branch & commit.</li>
+                    <li>Point your domain (e.g. <code
+                            class="px-1 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">jewside.com</code>)
+                        in Pages → Custom domains.</li>
+                    <li>Use this file as a landing; link to your Next.js app or static pages.</li>
+                </ul>
+
+                <div class="mt-6">
+                    <a href="README_CONNECTOR.md" class="btn btn-outline text-sm flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Read Docs
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-10 flex flex-col items-center space-y-2">
+            <a href="/healthcheck" class="btn btn-ghost text-sm inline-flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                /healthcheck
+            </a>
+            <a href="/api/status" class="btn btn-ghost text-sm inline-flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                /api/status
+            </a>
+        </section>
+    </main>
+
+    <div class="gradient-divider"></div>
+    <footer class="py-6 text-center text-sm text-slate-500">
+        <div class="flex justify-center space-x-6 mb-2">
+            <a href="#" class="hover:text-slate-700 dark:hover:text-slate-300">Privacy</a>
+            <a href="#" class="hover:text-slate-700 dark:hover:text-slate-300">Contact</a>
+        </div>
+        <div>© <span id="year"></span> JewSide. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Theme & RTL toggles (persist in localStorage)
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const rtlToggle = document.getElementById('rtlToggle');
+        const statusEl = document.getElementById('status');
+        const statusBadge = document.getElementById('statusBadge');
+        const segmentedControl = document.querySelector('.segmented-control');
+        const segmentedHighlight = document.getElementById('segmentedHighlight');
+        const themePills = document.querySelectorAll('.theme-pill');
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Dark/Light mode toggle
+        function setTheme(mode) {
+            html.classList.toggle('dark', mode === 'dark');
+            localStorage.setItem('colorMode', mode);
+            themeToggle.textContent = 'Dark: ' + (mode === 'dark' ? 'On' : 'Off');
+            themeToggle.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
+        }
+
+        // RTL/LTR toggle
+        function setDir(dir) {
+            html.setAttribute('dir', dir);
+            localStorage.setItem('dir', dir);
+            rtlToggle.textContent = 'RTL: ' + (dir === 'rtl' ? 'On' : 'Off');
+            rtlToggle.setAttribute('aria-pressed', dir === 'rtl' ? 'true' : 'false');
+            updateSegmentedControl();
+        }
+
+        // Theme selection (aurora/royal/sunset)
+        function setColorTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('colorTheme', theme);
+
+            // Update active theme pill
+            themePills.forEach(pill => {
+                const isActive = pill.dataset.theme === theme;
+                pill.classList.toggle('active', isActive);
+                if (isActive) pill.setAttribute('aria-current', 'true');
+                else pill.removeAttribute('aria-current');
+            });
+
+            // Update theme-color meta tag
+            const themeColors = {
+                'aurora': '#4F46E5', // indigo
+                'royal': '#7C3AED', // purple
+                'sunset': '#DB2777' // pink
+            };
+            metaThemeColor.setAttribute('content', themeColors[theme] || themeColors.aurora);
+        }
+
+        // Apply stored preferences
+        setTheme(localStorage.getItem('colorMode') || 'light');
+        setDir(localStorage.getItem('dir') || 'ltr');
+        setColorTheme(localStorage.getItem('colorTheme') || 'aurora');
+
+        // Event listeners
+        themeToggle.addEventListener('click', () => setTheme(html.classList.contains('dark') ? 'light' : 'dark'));
+        rtlToggle.addEventListener('click', () => setDir(html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'));
+        themePills.forEach(pill => {
+            pill.addEventListener('click', () => setColorTheme(pill.dataset.theme));
+        });
+
+        // Segmented control highlight positioning
+        function updateSegmentedControl() {
+            const activeItem = segmentedControl.querySelector('[aria-selected="true"]');
+            if (!activeItem) return;
+
+            const index = parseInt(activeItem.dataset.index, 10);
+            const width = parseInt(activeItem.dataset.width, 10);
+            const isRtl = html.getAttribute('dir') === 'rtl';
+            let position = 0;
+
+            // Calculate position based on previous items
+            for (let i = 0; i < index; i++) {
+                const item = segmentedControl.querySelector(`[data-index="${i}"]`);
+                if (item) position += parseInt(item.dataset.width, 10);
+            }
+
+            if (isRtl) {
+                // In RTL mode, we need to calculate position differently
+                const totalWidth = Array.from(segmentedControl.querySelectorAll('.segmented-control-item'))
+                    .reduce((sum, item) => sum + parseInt(item.dataset.width, 10), 0);
+                position = totalWidth - position - width;
+            }
+
+            segmentedHighlight.style.width = `${width}px`;
+            segmentedHighlight.style.transform = `translateX(${position}px)`;
+        }
+
+        // Initialize segmented control
+        updateSegmentedControl();
+
+        // Confetti animation for success state
+        function createConfetti() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            const container = document.getElementById('confettiContainer');
+            const canvas = document.createElement('canvas');
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+            container.appendChild(canvas);
+
+            const ctx = canvas.getContext('2d');
+            const confettiCount = 100;
+            const confetti = [];
+
+            // Create confetti particles
+            for (let i = 0; i < confettiCount; i++) {
+                confetti.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    size: Math.random() * 6 + 2,
+                    color: [
+                        `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.7)`,
+                        `rgba(var(--bg-grad-1), 0.7)`,
+                        `rgba(var(--bg-grad-2), 0.7)`,
+                        `rgba(var(--bg-grad-3), 0.7)`
+                    ][Math.floor(Math.random() * 4)],
+                    speed: Math.random() * 2 + 1
+                });
+            }
+
+            let animationFrame;
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                let stillFalling = false;
+                confetti.forEach(particle => {
+                    ctx.fillStyle = particle.color;
+                    ctx.fillRect(particle.x, particle.y, particle.size, particle.size);
+
+                    particle.y += particle.speed;
+
+                    if (particle.y < canvas.height) {
+                        stillFalling = true;
+                    }
+                });
+
+                if (stillFalling) {
+                    animationFrame = requestAnimationFrame(animate);
+                } else {
+                    cancelAnimationFrame(animationFrame);
+                    container.removeChild(canvas);
+                }
+            }
+
+            animationFrame = requestAnimationFrame(animate);
+
+            // Clean up animation after 3 seconds
+            setTimeout(() => {
+                if (animationFrame) {
+                    cancelAnimationFrame(animationFrame);
+                    if (canvas.parentNode) container.removeChild(canvas);
+                }
+            }, 3000);
+        }
+
+        // Status polling and error handling
+        let pollInterval;
+        let isTabVisible = true;
+
+        async function loadStatus() {
+            try {
+                statusEl.innerHTML = `
+            <div class="h-5 skeleton w-full"></div>
+            <div class="h-5 skeleton w-3/4"></div>
+            <div class="h-5 skeleton w-2/3"></div>
+            <div class="h-5 skeleton w-4/5"></div>
+            <div class="h-5 skeleton w-1/2"></div>
+            <div class="h-5 skeleton w-3/5"></div>
+          `;
+
+                const res = await fetch('/api/status', { headers: { 'cache-control': 'no-cache' } });
+                let data;
+
+                try {
+                    data = await res.json();
+                } catch (parseError) {
+                    throw new Error('Invalid response format');
+                }
+
+                if (!data) throw new Error('Empty response');
+
+                const commitShort = (data.commit || '').slice(0, 7);
+                statusEl.innerHTML = `
+            <div><b>ok:</b> ${data.ok ? 'Yes' : 'No'}</div>
+            <div><b>branch:</b> ${data.branch ?? '—'}</div>
+            <div><b>commit:</b> ${commitShort || '—'}</div>
+            <div><b>url:</b> ${data.url || window.location.origin}</div>
+            <div><b>hostname:</b> ${data.hostname || window.location.hostname}</div>
+            <div><b>timestamp:</b> ${data.timestamp || new Date().toISOString()}</div>
+          `;
+
+                const success = data.ok !== false;
+                statusBadge.innerHTML = success ?
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Connected` :
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg> Issue`;
+
+                statusBadge.className = 'mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs ' + (success
+                    ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200'
+                    : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-200');
+
+                if (success) {
+                    createConfetti();
+                }
+            } catch (e) {
+                statusEl.innerHTML = `
+            <div class="p-3 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-300">
+              We couldn't reach the function—deploy pending or URL mismatch.
+              <button id="retryButton" class="mt-2 btn btn-sm btn-outline border-red-200 dark:border-red-900">Retry</button>
+            </div>
+            <div class="mt-3">
+              <div><b>url:</b> ${window.location.origin}</div>
+              <div><b>hostname:</b> ${window.location.hostname}</div>
+              <div><b>timestamp:</b> ${new Date().toISOString()}</div>
+            </div>
+          `;
+
+                document.getElementById('retryButton')?.addEventListener('click', loadStatus);
+
+                statusBadge.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="15" y1="9" x2="9" y2="15"></line>
+              <line x1="9" y1="9" x2="15" y2="15"></line>
+            </svg> Issue
+          `;
+
+                statusBadge.className = 'mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-200 text-xs';
+            }
+        }
+
+        // Tab visibility API for polling
+        document.addEventListener('visibilitychange', () => {
+            isTabVisible = document.visibilityState === 'visible';
+            if (isTabVisible) {
+                loadStatus();
+                startPolling();
+            } else {
+                clearInterval(pollInterval);
+            }
+        });
+
+        // Start polling status every 10 seconds
+        function startPolling() {
+            clearInterval(pollInterval);
+            pollInterval = setInterval(() => {
+                if (isTabVisible) loadStatus();
+            }, 10000);
+        }
+
+        // Initial load
+        loadStatus();
+        startPolling();
+    </script>
+</body>
+
+</html>

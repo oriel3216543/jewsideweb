@@ -1,0 +1,4 @@
+# Optional for Pages Functions; safe to keep for compat
+name = "jewside-connector"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
