@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "title_en": "How to Light Shabbat Candles",
+    "title_he": "איך להדליק נרות שבת",
+    "description_en": "Step by step guide for lighting Shabbat candles and saying the blessings.",
+    "description_he": "מדריך שלב אחר שלב להדלקת נרות שבת ואמירת הברכות.",
+    "thumbnail": "/samples/video-candles.jpg",
+    "url": "/samples/video1.mp4",
+    "category_id": 1,
+    "duration": "4:22",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title_en": "Understanding the Rosh Hashanah Prayers",
+    "title_he": "להבין את תפילות ראש השנה",
+    "description_en": "A deep dive into the meaning and significance of Rosh Hashanah liturgy.",
+    "description_he": "צלילה עמוקה למשמעות ולחשיבות של הליטורגיה של ראש השנה.",
+    "thumbnail": "/samples/video-rosh.jpg",
+    "url": "/samples/video2.mp4",
+    "category_id": 2,
+    "duration": "18:45",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title_en": "Morning Blessings Explained",
+    "title_he": "ברכות הבוקר מוסברות",
+    "description_en": "Learn about the series of blessings recited each morning and their spiritual significance.",
+    "description_he": "למד על סדרת הברכות הנאמרות מדי בוקר ומשמעותן הרוחנית.",
+    "thumbnail": "/samples/video-morning.jpg",
+    "url": "/samples/video3.mp4",
+    "category_id": 3,
+    "duration": "12:17",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title_en": "The Story of Passover",
+    "title_he": "סיפור פסח",
+    "description_en": "The biblical story of the Exodus from Egypt and its celebration through Passover.",
+    "description_he": "הסיפור התנ\"כי של יציאת מצרים וחגיגתו דרך חג הפסח.",
+    "thumbnail": "/samples/video-passover.jpg",
+    "url": "/samples/video4.mp4",
+    "category_id": 6,
+    "duration": "21:03",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title_en": "Torah Reading Basics",
+    "title_he": "יסודות קריאת התורה",
+    "description_en": "Learn the fundamentals of Torah reading, including cantillation marks and traditions.",
+    "description_he": "למד את יסודות קריאת התורה, כולל סימני טעמים ומסורות.",
+    "thumbnail": "/samples/video-torah.jpg",
+    "url": "/samples/video5.mp4",
+    "category_id": 5,
+    "duration": "15:38",
+    "featured": true
+  },
+  {
+    "id": 6,
+    "title_en": "Wedding Traditions",
+    "title_he": "מסורות חתונה",
+    "description_en": "Explore Jewish wedding customs, from the Ketubah to breaking the glass.",
+    "description_he": "חקור מנהגי חתונה יהודיים, מהכתובה ועד שבירת הכוס.",
+    "thumbnail": "/samples/video-wedding.jpg",
+    "url": "/samples/video6.mp4",
+    "category_id": 8,
+    "duration": "28:15",
+    "featured": false
+  },
+  {
+    "id": 7,
+    "title_en": "Learning Hebrew: Basics",
+    "title_he": "לימוד עברית: יסודות",
+    "description_en": "Introduction to the Hebrew alphabet and basic vocabulary for prayers.",
+    "description_he": "מבוא לאלפבית העברי ואוצר מילים בסיסי לתפילות.",
+    "thumbnail": "/samples/video-hebrew.jpg",
+    "url": "/samples/video7.mp4",
+    "category_id": 5,
+    "duration": "9:57",
+    "featured": false
+  },
+  {
+    "id": 8,
+    "title_en": "Shabbat Songs Sing-along",
+    "title_he": "שירי שבת לשירה משותפת",
+    "description_en": "Learn popular Shabbat table songs with lyrics and melodies.",
+    "description_he": "למד שירי שולחן שבת פופולריים עם מילים ומנגינות.",
+    "thumbnail": "/samples/video-songs.jpg",
+    "url": "/samples/video8.mp4",
+    "category_id": 7,
+    "duration": "16:42",
+    "featured": true
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "slug": "shabbat",
+    "name_en": "Shabbat",
+    "name_he": "שבת",
+    "icon": "calendar"
+  },
+  {
+    "id": 2,
+    "slug": "high-holidays",
+    "name_en": "High Holidays",
+    "name_he": "חגים",
+    "icon": "star"
+  },
+  {
+    "id": 3,
+    "slug": "daily-prayers",
+    "name_en": "Daily Prayers",
+    "name_he": "תפילות יומיות",
+    "icon": "book-open"
+  },
+  {
+    "id": 4,
+    "slug": "blessing",
+    "name_en": "Blessings",
+    "name_he": "ברכות",
+    "icon": "heart"
+  },
+  {
+    "id": 5,
+    "slug": "torah",
+    "name_en": "Torah",
+    "name_he": "תורה",
+    "icon": "scroll"
+  },
+  {
+    "id": 6,
+    "slug": "holidays",
+    "name_en": "Holidays",
+    "name_he": "מועדים",
+    "icon": "calendar"
+  },
+  {
+    "id": 7,
+    "slug": "songs",
+    "name_en": "Songs",
+    "name_he": "שירים",
+    "icon": "music"
+  },
+  {
+    "id": 8,
+    "slug": "life-cycle",
+    "name_en": "Life Cycle",
+    "name_he": "מעגל החיים",
+    "icon": "circle"
+  }
+]

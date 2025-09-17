@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "title_en": "Shema Israel",
+    "title_he": "שמע ישראל",
+    "excerpt_en": "The Shema is the most important prayer in Judaism, affirming monotheism and declaring faith in one God.",
+    "excerpt_he": "שמע הוא התפילה החשובה ביותר ביהדות, המאשרת מונותאיזם ומצהירה אמונה באל אחד.",
+    "content_en": "Hear, O Israel: The LORD is our God, the LORD is One. Blessed be the name of His glorious kingdom for ever and ever. And you shall love the LORD your God with all your heart and with all your soul and with all your might. And these words that I command you today shall be in your heart.",
+    "content_he": "שְׁמַע יִשְׂרָאֵל יְהוָה אֱלֹהֵינוּ יְהוָה אֶחָד: בָּרוּךְ שֵׁם כְּבוֹד מַלְכוּתוֹ לְעוֹלָם וָעֶד: וְאָהַבְתָּ אֵת יְהוָה אֱלֹהֶיךָ בְּכָל לְבָבְךָ וּבְכָל נַפְשְׁךָ וּבְכָל מְאֹדֶךָ: וְהָיוּ הַדְּבָרִים הָאֵלֶּה אֲשֶׁר אָנֹכִי מְצַוְּךָ הַיּוֹם עַל לְבָבֶךָ:",
+    "category_ids": [3, 4],
+    "featured": true,
+    "audio_url": "/samples/shema.mp3"
+  },
+  {
+    "id": 2,
+    "title_en": "Kiddush",
+    "title_he": "קידוש",
+    "excerpt_en": "A blessing recited over wine or grape juice to sanctify the Shabbat or Jewish holidays.",
+    "excerpt_he": "ברכה הנאמרת על יין או מיץ ענבים לקדש את השבת או את החגים היהודיים.",
+    "content_en": "Blessed are You, LORD our God, King of the universe, who creates the fruit of the vine. Blessed are You, LORD our God, King of the universe, who has sanctified us with His commandments, and has desired us, and has given us, in love and goodwill, His holy Shabbat as a heritage, a remembrance of the Creation.",
+    "content_he": "בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם בּוֹרֵא פְּרִי הַגָּפֶן. בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר קִדְּשָׁנוּ בְּמִצְוֹתָיו וְרָצָה בָנוּ, וְשַׁבַּת קָדְשׁוֹ בְּאַהֲבָה וּבְרָצוֹן הִנְחִילָנוּ, זִכָּרוֹן לְמַעֲשֵׂה בְרֵאשִׁית.",
+    "category_ids": [1, 4],
+    "featured": true,
+    "audio_url": "/samples/kiddush.mp3"
+  },
+  {
+    "id": 3,
+    "title_en": "Amidah",
+    "title_he": "עמידה",
+    "excerpt_en": "Also known as the Shemoneh Esrei, this is the central prayer of Jewish liturgy, recited while standing.",
+    "excerpt_he": "ידועה גם כשמונה עשרה, זוהי התפילה המרכזית בליטורגיה היהודית, הנאמרת בעמידה.",
+    "content_en": "Lord, open my lips, and my mouth shall declare Your praise. Blessed are You, LORD our God and God of our fathers, God of Abraham, God of Isaac, and God of Jacob, the great, mighty, and awesome God, the Most High God, who bestows loving kindness and creates all things, and remembers the good deeds of the patriarchs, and will bring a redeemer to their children's children for the sake of His Name in love.",
+    "content_he": "אֲדֹנָי שְׂפָתַי תִּפְתָּח וּפִי יַגִּיד תְּהִלָּתֶךָ: בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ וֵאלֹהֵי אֲבוֹתֵינוּ, אֱלֹהֵי אַבְרָהָם, אֱלֹהֵי יִצְחָק, וֵאלֹהֵי יַעֲקֹב, הָאֵל הַגָּדוֹל הַגִּבּוֹר וְהַנּוֹרָא, אֵל עֶלְיוֹן, גּוֹמֵל חֲסָדִים טוֹבִים, וְקוֹנֵה הַכֹּל, וְזוֹכֵר חַסְדֵי אָבוֹת, וּמֵבִיא גוֹאֵל לִבְנֵי בְנֵיהֶם לְמַעַן שְׁמוֹ בְּאַהֲבָה.",
+    "category_ids": [3],
+    "featured": false,
+    "audio_url": "/samples/amidah.mp3"
+  },
+  {
+    "id": 4,
+    "title_en": "Kol Nidre",
+    "title_he": "כל נדרי",
+    "excerpt_en": "A prayer recited in the synagogue at the beginning of Yom Kippur, the Day of Atonement.",
+    "excerpt_he": "תפילה הנאמרת בבית הכנסת בתחילת יום הכיפורים.",
+    "content_en": "All vows, prohibitions, oaths, consecrations, vows of abstinence and promises that we may vow, swear, consecrate, or prohibit upon ourselves from this Yom Kippur until the next Yom Kippur, may it come upon us for good – regarding them all, we regret them henceforth. They will all be permitted, abandoned, cancelled, null and void, without power and without standing.",
+    "content_he": "כָּל נִדְרֵי וֶאֱסָרֵי וּשְׁבוּעֵי וַחֲרָמֵי וְקוֹנָמֵי וְקִנוּסֵי וְכִנוּיֵי, דִּנְדַרְנָא וּדְאִשְׁתַּבַּעְנָא וּדְאַחֲרִמְנָא וּדְאָסַרְנָא עַל נַפְשָׁתָנָא מִיּוֹם כִּפּוּרִים שֶׁעָבַר עַד יוֹם כִּפּוּרִים זֶה, וּמִיּוֹם כִּפּוּרִים זֶה עַד יוֹם כִּפּוּרִים הַבָּא עָלֵינוּ לְטוֹבָה, כֻּלְּהוֹן אִחֲרַטְנָא בְהוֹן, כֻּלְּהוֹן יְהוֹן שָׁרָן, שְׁבִיקִין שְׁבִיתִין, בְּטֵלִין וּמְבֻטָּלִין, לָא שְׁרִירִין וְלָא קַיָּמִין.",
+    "category_ids": [2],
+    "featured": true,
+    "audio_url": "/samples/kolnidre.mp3"
+  },
+  {
+    "id": 5,
+    "title_en": "Modeh Ani",
+    "title_he": "מודה אני",
+    "excerpt_en": "A morning prayer that expresses gratitude for the return of one's soul and the beginning of a new day.",
+    "excerpt_he": "תפילת בוקר המביעה הכרת תודה על החזרת הנשמה והתחלת יום חדש.",
+    "content_en": "I offer thanks to You, living and eternal King, for You have mercifully restored my soul within me; Your faithfulness is great.",
+    "content_he": "מוֹדֶה אֲנִי לְפָנֶיךָ מֶלֶךְ חַי וְקַיָּם, שֶׁהֶחֱזַרְתָּ בִּי נִשְׁמָתִי בְּחֶמְלָה. רַבָּה אֱמוּנָתֶךָ.",
+    "category_ids": [3, 4],
+    "featured": false,
+    "audio_url": "/samples/modehani.mp3"
+  },
+  {
+    "id": 6,
+    "title_en": "Ma Tovu",
+    "title_he": "מה טובו",
+    "excerpt_en": "A prayer expressing admiration for the beauty of the synagogues and houses of study of the Jewish people.",
+    "excerpt_he": "תפילה המביעה הערצה ליופיים של בתי הכנסת ובתי המדרש של העם היהודי.",
+    "content_en": "How goodly are your tents, O Jacob, your dwelling places, O Israel! As for me, through Your abundant kindness I will enter Your house; I will prostrate myself toward Your Holy Temple in awe of You.",
+    "content_he": "מַה טֹּבוּ אֹהָלֶיךָ יַעֲקֹב, מִשְׁכְּנֹתֶיךָ יִשְׂרָאֵל. וַאֲנִי בְּרֹב חַסְדְּךָ אָבוֹא בֵיתֶךָ, אֶשְׁתַּחֲוֶה אֶל הֵיכַל קָדְשְׁךָ בְּיִרְאָתֶךָ.",
+    "category_ids": [3],
+    "featured": false,
+    "audio_url": "/samples/matovu.mp3"
+  },
+  {
+    "id": 7,
+    "title_en": "Hatikvah",
+    "title_he": "התקווה",
+    "excerpt_en": "The national anthem of Israel, expressing the hope of the Jewish people to be a free nation in their homeland.",
+    "excerpt_he": "ההמנון הלאומי של ישראל, המביע את תקוות העם היהודי להיות עם חופשי בארצו.",
+    "content_en": "As long as within our hearts the Jewish soul sings, and onward towards the East an eye still looks toward Zion, our hope is not lost, the hope of two thousand years, to be a free nation in our land, the land of Zion and Jerusalem.",
+    "content_he": "כֹּל עוֹד בַּלֵּבָב פְּנִימָה, נֶפֶשׁ יְהוּדִי הוֹמִיָּה, וּלְפַאֲתֵי מִזְרָח קָדִימָה, עַיִן לְצִיּוֹן צוֹפִיָּה, עוֹד לֹא אָבְדָה תִקְוָתֵנוּ, הַתִּקְוָה בַּת שְׁנוֹת אַלְפַּיִם, לִהְיוֹת עַם חָפְשִׁי בְּאַרְצֵנוּ, אֶרֶץ צִיּוֹן וִירוּשָׁלַיִם.",
+    "category_ids": [7],
+    "featured": false,
+    "audio_url": "/samples/hatikvah.mp3"
+  },
+  {
+    "id": 8,
+    "title_en": "Havdalah",
+    "title_he": "הבדלה",
+    "excerpt_en": "A ceremony that marks the end of Shabbat and the beginning of the new week.",
+    "excerpt_he": "טקס המציין את סיום השבת ואת תחילת השבוע החדש.",
+    "content_en": "Blessed are You, LORD our God, King of the universe, who creates the lights of fire. Blessed are You, LORD our God, King of the universe, who makes a distinction between sacred and profane, between light and darkness, between Israel and the nations, between the seventh day and the six working days.",
+    "content_he": "בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, בּוֹרֵא מְאוֹרֵי הָאֵשׁ. בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, הַמַּבְדִיל בֵּין קֹדֶשׁ לְחֹל, בֵּין אוֹר לְחֹשֶׁךְ, בֵּין יִשְׂרָאֵל לָעַמִּים, בֵּין יוֹם הַשְּׁבִיעִי לְשֵׁשֶׁת יְמֵי הַמַּעֲשֶׂה.",
+    "category_ids": [1],
+    "featured": true,
+    "audio_url": "/samples/havdalah.mp3"
+  }
+]

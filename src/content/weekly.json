@@ -1,0 +1,10 @@
+{
+  "featured_prayers": [1, 2, 4, 8],
+  "featured_videos": [1, 2, 5, 8],
+  "hero": {
+    "headline_en": "Explore Jewish Traditions & Prayers",
+    "headline_he": "גלה מסורות ותפילות יהודיות",
+    "subline_en": "Discover the richness of Jewish heritage through prayers, videos, and educational content.",
+    "subline_he": "גלה את עושר המורשת היהודית דרך תפילות, סרטונים ותוכן חינוכי."
+  }
+}

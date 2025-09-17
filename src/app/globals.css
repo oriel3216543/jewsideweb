@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand colors */
+    --brand-50: #E6F4F5;
+    --brand-100: #CCE9EB;
+    --brand-200: #99D3D7;
+    --brand-300: #67BDC3;
+    --brand-400: #37B7C3; /* Accent color */
+    --brand-500: #2A8B94;
+    --brand-600: #0C2D57; /* Primary deep blue */
+    --brand-700: #092243;
+    --brand-800: #06172F;
+    --brand-900: #030B18;
+
+    /* Base colors for light mode */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 221 75% 19.6%; /* brand-600 in HSL */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 186 55% 49%; /* brand-400 in HSL */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 186 55% 49%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 221 75% 19.6%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 221 75% 35%; /* Lighter for dark mode */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 186 55% 49%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 186 55% 49%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 221 75% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1, .h1 {
+    @apply text-4xl font-bold tracking-tight lg:text-5xl;
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  h2, .h2 {
+    @apply text-2xl font-bold tracking-tight lg:text-3xl;
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  h3, .h3 {
+    @apply text-xl font-bold tracking-tight lg:text-2xl;
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .display {
+    @apply text-4xl font-extrabold tracking-tight lg:text-6xl;
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  p, .body {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .small {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] .flip-x {
+    @apply transform -scale-x-100;
+  }
+
+  /* Logical Properties */
+  .ms-auto {
+    margin-inline-start: auto;
+  }
+  
+  .me-auto {
+    margin-inline-end: auto;
+  }
+
+  .ps-4 {
+    padding-inline-start: 1rem;
+  }
+
+  .pe-4 {
+    padding-inline-end: 1rem;
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .rtl-grid {
+    @apply grid;
+  }
+  
+  [dir="rtl"] .rtl-grid {
+    direction: rtl;
+  }
+}
