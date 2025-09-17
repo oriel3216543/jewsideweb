@@ -71,3 +71,14 @@ const themeColors = {
   'new-theme-name': '#RRGGBB'
 };
 ```
+
+## Cloudflare UI Settings (Static)
+- Build command: None
+- Deploy command: None
+- Output directory: /
+- Custom domain: status.jewside.com (recommended)
+- Enable: Always Use HTTPS + HSTS
+
+### Test after deploy
+- Visit `/healthcheck` → should show `OK`
+- Visit `/api/status` → should return JSON with { ok, branch, commit, url, hostname, timestamp }
