@@ -1,0 +1,27 @@
+# Production Environment Variables
+# Copy this file to .env and update with your production values
+
+# Server Configuration
+PORT=3000
+NODE_ENV=production
+
+# MongoDB Connection (Use MongoDB Atlas for production)
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/jewside?retryWrites=true&w=majority
+
+# JWT Secret - MUST BE CHANGED! Generate with: openssl rand -base64 32
+JWT_SECRET=CHANGE_THIS_TO_A_SECURE_RANDOM_STRING
+
+# Admin Credentials - MUST BE CHANGED!
+ADMIN_USERNAME=admin@jewside.com
+ADMIN_PASSWORD=OriAdmin
+
+# CORS Settings
+ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,https://jewside.com,https://www.jewside.com
+
+# Session Settings
+SESSION_EXPIRY=24h
+
+# Optional: MongoDB Atlas Connection (Recommended for production)
+# MONGO_ROOT_USERNAME=your_username
+# MONGO_ROOT_PASSWORD=your_password
+

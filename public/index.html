@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JewSide - Daily Prayers & Blessings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="LOGO.png" alt="JewSide Logo" class="logo">
+                    <h1 class="site-title">JewSide</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#prayers" class="nav-link">Prayers</a>
+                    <a href="#about" class="nav-link">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Welcome to JewSide</h2>
+                <p class="hero-subtitle">Your daily source for Jewish prayers, blessings, and spiritual guidance</p>
+                <a href="#prayers" class="cta-button">Explore Prayers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayers Section -->
+    <section id="prayers" class="prayers-section">
+        <div class="container">
+            <h2 class="section-title">Daily Prayers</h2>
+            <div id="prayersContainer" class="prayers-grid">
+                <!-- Prayers will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About JewSide</h2>
+            <div class="about-content">
+                <p>JewSide is dedicated to bringing the beauty and wisdom of Jewish prayers to your daily life. Whether
+                    you're seeking morning blessings, Shabbat prayers, or special occasion blessings, we're here to
+                    guide your spiritual journey.</p>
+                <p>Our collection includes traditional prayers in Hebrew with English translations, making them
+                    accessible to everyone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Admin Login -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <p>&copy; 2025 JewSide. All rights reserved.</p>
+                </div>
+                <div class="footer-admin">
+                    <h3>Admin Access</h3>
+                    <form id="footerLoginForm" class="footer-login-form">
+                        <div class="footer-form-group">
+                            <input type="email" id="footerUsername" name="username" placeholder="Email" required>
+                        </div>
+                        <div class="footer-form-group">
+                            <input type="password" id="footerPassword" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="footer-login-btn">Login</button>
+                        <div id="footerLoginError" class="footer-error-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Admin Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+                <div id="loginError" class="error-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content admin-dashboard">
+            <span class="close-admin">&times;</span>
+            <h2>Prayer Management Dashboard</h2>
+
+            <div class="admin-actions">
+                <button id="addPrayerBtn" class="action-btn">+ Add New Prayer</button>
+                <button id="logoutBtn" class="action-btn logout-btn">Logout</button>
+            </div>
+
+            <div id="adminPrayersContainer" class="admin-prayers-list">
+                <!-- Admin prayer list will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Prayer Modal -->
+    <div id="editPrayerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-edit">&times;</span>
+            <h2 id="editModalTitle">Add New Prayer</h2>
+            <form id="editPrayerForm">
+                <input type="hidden" id="editPrayerId">
+                <div class="form-group">
+                    <label for="prayerTitle">Prayer Title</label>
+                    <input type="text" id="prayerTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="prayerCategory">Category</label>
+                    <select id="prayerCategory" name="category" required>
+                        <option value="Morning">Morning Prayers</option>
+                        <option value="Evening">Evening Prayers</option>
+                        <option value="Shabbat">Shabbat</option>
+                        <option value="Holidays">Holidays</option>
+                        <option value="Blessings">Blessings</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="prayerHebrew">Hebrew Text</label>
+                    <textarea id="prayerHebrew" name="hebrew" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prayerTransliteration">Transliteration (Optional)</label>
+                    <textarea id="prayerTransliteration" name="transliteration" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prayerTranslation">English Translation</label>
+                    <textarea id="prayerTranslation" name="translation" rows="4" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Save Prayer</button>
+                    <button type="button" id="cancelEditBtn" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

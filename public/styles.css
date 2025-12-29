@@ -1,0 +1,675 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors from the logo */
+    --primary-blue: #4A90E2;
+    --light-blue: #A8D5F7;
+    --sky-blue: #E3F2FD;
+    --deep-blue: #2E5F8F;
+    --white: #FFFFFF;
+    --light-gray: #F5F7FA;
+    --text-dark: #2C3E50;
+    --text-light: #6B7280;
+    --shadow: rgba(74, 144, 226, 0.15);
+    --gradient-start: #E3F2FD;
+    --gradient-end: #FFFFFF;
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--light-blue);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.site-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-blue);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-blue);
+}
+
+.admin-btn {
+    background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.admin-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow);
+}
+
+/* Hero Section */
+.hero {
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--deep-blue);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px var(--shadow);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 25px var(--shadow);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+/* Prayers Section */
+.prayers-section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--deep-blue);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.prayers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.prayer-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--primary-blue);
+}
+
+.prayer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+.prayer-category {
+    display: inline-block;
+    background: var(--sky-blue);
+    color: var(--deep-blue);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.prayer-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5rem;
+    color: var(--deep-blue);
+    margin-bottom: 1rem;
+}
+
+.prayer-hebrew {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    direction: rtl;
+    text-align: right;
+    font-weight: 500;
+}
+
+.prayer-transliteration {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.prayer-translation {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* About Section */
+.about-section {
+    padding: 4rem 0;
+    background: white;
+    margin: 2rem 0;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* Footer */
+.footer {
+    background: var(--deep-blue);
+    color: white;
+    padding: 3rem 0 2rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.footer-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.footer-main p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.footer-admin {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-admin h3 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--light-blue);
+}
+
+.footer-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-form-group {
+    width: 100%;
+}
+
+.footer-form-group input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.footer-form-group input:focus {
+    outline: none;
+    border-color: var(--light-blue);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(168, 213, 247, 0.2);
+}
+
+.footer-form-group input::placeholder {
+    color: var(--text-light);
+}
+
+.footer-login-btn {
+    background: linear-gradient(135deg, var(--light-blue), var(--primary-blue));
+    color: var(--deep-blue);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer-login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+}
+
+.footer-error-message {
+    color: #FFA5A5;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    min-height: 1.2rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-content.admin-dashboard {
+    max-width: 900px;
+}
+
+.close,
+.close-admin,
+.close-edit {
+    color: var(--text-light);
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close-admin:hover,
+.close-edit:hover {
+    color: var(--primary-blue);
+}
+
+.modal-content h2 {
+    font-family: 'Frank Ruhl Libre', serif;
+    color: var(--deep-blue);
+    margin-bottom: 1.5rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--light-blue);
+    border-radius: 10px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow);
+}
+
+.error-message {
+    color: #E53E3E;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Admin Dashboard Styles */
+.admin-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.action-btn {
+    background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow);
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #E53E3E, #C53030);
+}
+
+.admin-prayers-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.admin-prayer-item {
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.admin-prayer-info h3 {
+    color: var(--deep-blue);
+    margin-bottom: 0.5rem;
+}
+
+.admin-prayer-info p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.admin-prayer-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.edit-btn {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.delete-btn {
+    background: #E53E3E;
+    color: white;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    transform: scale(1.05);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.cancel-btn {
+    background: var(--light-gray);
+    color: var(--text-dark);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: #E2E8F0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .prayers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 1.5rem;
+    }
+
+    .admin-prayer-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-main {
+        text-align: center;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading State */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-light);
+}
+
+.loading::after {
+    content: '...';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
