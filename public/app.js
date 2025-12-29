@@ -1,7 +1,14 @@
-// API Configuration (handles local file:// opens gracefully)
-const API_BASE = window.location.origin.startsWith('file')
-    ? 'http://localhost:3000'
-    : window.location.origin;
+// API Configuration (allows hosted frontend with external API)
+const DEPLOY_API_BASE = 'https://api.jewside.com';
+const configuredApiBase = window.__JEWSIDE_API_BASE__ 
+    || document.querySelector('meta[name="api-base"]')?.content;
+const API_BASE = configuredApiBase
+    ? configuredApiBase
+    : window.location.origin.startsWith('file')
+        ? 'http://localhost:3000'
+        : window.location.hostname.endsWith('jewside.com')
+            ? DEPLOY_API_BASE
+            : window.location.origin;
 const API_URL = `${API_BASE}/api`;
 let authToken = localStorage.getItem('jewside_auth_token');
 
